@@ -1,0 +1,1936 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dancing+Script:wght@400..700&family=Pixelify+Sans:wght@400;500;600;700&display=swap");
+.cloud {
+  position: fixed;
+  background: white;
+  border-radius: 100px;
+  opacity: 0.7;
+  z-index: -1;
+}
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.cloud1 {
+  width: 180px;
+  height: 60px;
+  top: 15%;
+  left: 10%;
+}
+.cloud1::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 25px;
+}
+.cloud1::after {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  right: 20px;
+}
+.cloud2 {
+  width: 220px;
+  height: 70px;
+  top: 60%;
+  right: 8%;
+}
+.cloud2::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 30px;
+}
+.cloud2::after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  right: 25px;
+}
+.cloud3 {
+  width: 160px;
+  height: 55px;
+  bottom: 15%;
+  left: 20%;
+}
+.cloud3::before {
+  width: 65px;
+  height: 65px;
+  top: -30px;
+  left: 20px;
+}
+.cloud3::after {
+  width: 85px;
+  height: 85px;
+  top: -40px;
+  right: 15px;
+}
+@keyframes drift {
+  from {
+    transform: translateX(-50px);
+  }
+  to {
+    transform: translateX(50px);
+  }
+}
+.cloud1 {
+  animation: drift 10s ease-in-out infinite alternate;
+}
+
+.cloud2 {
+  animation: drift 14s ease-in-out infinite alternate;
+}
+.cloud3 {
+  animation: drift 12s ease-in-out infinite alternate;
+}
+body {
+  font-family: "Dancing Script", cursive;
+  background: #f25278;
+  text-align: center;
+  padding-top: 50px;
+  transition: background-color 2s ease;
+}
+
+body.wind-started {
+  background: #cfeeff;
+}
+h1 {
+  font-family: "Cedarville Cursive", cursive !important;
+  font-size: 2rem;
+  margin-top: 1px;
+}
+.cedarville-text {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 1.5rem;
+  margin-top: 1px;
+}
+.container {
+  background: #fcbacb;
+  font-family: "Dancing Script", cursive !important;
+  width: 400px;
+  margin: auto;
+  padding: 30px;
+  margin-top: 1px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#nameInput {
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  margin-right: 15px;
+}
+button {
+  background: white;
+  font-family: "Times New Roman", Times, serif;
+  color: red;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5px;
+  margin-bottom: 0px;
+}
+
+button:hover {
+  background: #fff5f8;
+}
+.leaf {
+  position: fixed;
+  font-size: 28px;
+  pointer-events: none;
+  z-index: 999;
+  animation: windFlow 2.5s linear forwards;
+}
+
+@keyframes windFlow {
+  0% {
+    transform: translateX(-100px) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 150px)) translateY(-80px) rotate(720deg);
+    opacity: 0;
+  }
+}
+#helloScene {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background: #cfeeff;
+
+  transition: opacity 1.5s ease;
+
+  z-index: 1000;
+}
+
+#helloScene.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+#windLayer {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 999;
+}
+.wind {
+  position: absolute;
+  left: -300px;
+  width: 250px;
+  height: 6px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+
+  animation: gust 1.8s linear forwards;
+}
+
+@keyframes gust {
+  from {
+    left: -300px;
+  }
+
+  to {
+    left: 120%;
+  }
+}
+.leaf {
+  position: fixed;
+  font-size: 40px;
+  z-index: 999;
+  animation: leafFly 2s linear forwards;
+}
+
+@keyframes leafFly {
+  0% {
+    transform: translateX(-100px) rotate(0deg);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 200px)) translateY(-120px) rotate(720deg);
+
+    opacity: 0;
+  }
+}
+.container.blow-away {
+  animation: blowAway 2s forwards;
+}
+
+.cloud.blow-away {
+  animation: blowAway 2s forwards;
+}
+
+@keyframes blowAway {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(800px) translateY(-50px) rotate(25deg) scale(0.8);
+  }
+}
+
+#helloScene {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background-color: #fbfcf8;
+  background-image: linear-gradient(
+      90deg,
+      rgba(185, 212, 230, 0.48) 45%,
+      transparent 45%,
+      transparent 55%,
+      rgba(185, 212, 230, 0.48) 55%
+    ),
+    linear-gradient(
+      rgba(185, 212, 230, 0.48) 45%,
+      transparent 45%,
+      transparent 55%,
+      rgba(185, 212, 230, 0.48) 55%
+    );
+  background-size: 110px 110px;
+
+  transition: opacity 1.5s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+#frogSkater {
+  position: absolute;
+  width: 260px;
+  max-width: 45vw;
+  left: -260px;
+  top: calc(50% - 210px);
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#helloScene.show #frogSkater {
+  animation: frogSlideIn 2.3s ease-out forwards;
+}
+
+@keyframes frogSlideIn {
+  0% {
+    left: -260px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(50% + 160px);
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+#helloText {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 5rem;
+  color: #3b6b4a;
+}
+#continueQuestion,
+#choiceButtons .pixelChoice,
+#wrongAnswerText {
+  font-family: "Pixelify Sans", sans-serif !important;
+}
+#continuePhase {
+  position: relative;
+  z-index: 1002;
+  display: none;
+  text-align: center;
+}
+
+#continuePhase.show {
+  display: block;
+}
+
+#continueQuestion {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: black;
+  margin: 0 0 35px;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+#continuePhase.show #continueQuestion {
+  animation: questionAppear 1.4s ease forwards;
+}
+
+@keyframes questionAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#choiceButtons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.pixelChoice {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: black;
+  background: #e97fa8;
+  border: 7px solid black;
+  padding: 12px 48px;
+  box-shadow: inset 6px 6px 0 rgba(255, 255, 255, 0.35),
+    inset -6px -6px 0 rgba(120, 40, 70, 0.25), 0 8px 0 black;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(90px);
+}
+
+#continuePhase.show .pixelChoice {
+  animation: buttonPopUp 0.9s ease forwards;
+  animation-delay: 1.1s;
+}
+
+#continuePhase.show .pixelChoice:nth-child(2) {
+  animation-delay: 1.3s;
+}
+
+@keyframes buttonPopUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pixelChoice:hover {
+  background: #f19aba;
+}
+
+.pixelChoice:active {
+  transform: translateY(5px);
+  box-shadow: inset 6px 6px 0 rgba(255, 255, 255, 0.25),
+    inset -6px -6px 0 rgba(120, 40, 70, 0.25), 0 3px 0 black;
+}
+
+#wrongAnswerText {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 2.5rem;
+  color: red;
+  margin-top: 35px;
+  opacity: 0;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
+}
+
+#wrongAnswerText.show {
+  animation: wrongAppear 0.5s ease forwards;
+}
+
+@keyframes wrongAppear {
+  to {
+    opacity: 1;
+  }
+}
+#correctAnswerText {
+  font-family: "Pixelify Sans", sans-serif !important;
+  font-size: 2.5rem;
+  color: #32c759;
+  margin-top: 35px;
+  opacity: 0;
+
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
+}
+
+#correctAnswerText.show {
+  animation: correctAppear 0.5s ease forwards;
+}
+
+@keyframes correctAppear {
+  to {
+    opacity: 1;
+  }
+}
+#helloText.fade-away {
+  animation: sceneFadeAway 1.3s ease forwards;
+}
+
+#helloScene.show #frogSkater.fade-away {
+  animation: sceneFadeAway 1.3s ease forwards;
+}
+
+@keyframes sceneFadeAway {
+  to {
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+}
+#slotIntroPhase {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 1005;
+}
+#slotIntroPhase.show {
+  display: block;
+}
+
+#slotIntroText {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+
+  color: white;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+
+  margin-bottom: 10px;
+}
+
+#slotIntroSubtext {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 2rem;
+
+  color: white;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+}
+
+#slotArrow {
+  font-size: 3rem;
+
+  color: white;
+
+  margin: 10px 0 20px;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black;
+
+  animation: arrowBounce 1s infinite;
+}
+
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+#startSlotBtn {
+  width: 220px;
+
+  display: block;
+
+  margin: 0 auto;
+
+  cursor: pointer;
+
+  image-rendering: pixelated;
+
+  transition: transform 0.15s ease;
+}
+#startSlotBtn:hover {
+  transform: scale(1.05);
+}
+
+#startSlotBtn:active {
+  transform: scale(0.95);
+}
+#slotScene {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  background-image: url("https://i.ibb.co/cST3nR94/slot-animation-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: opacity 1.6s ease;
+  overflow: hidden;
+}
+
+#slotScene.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#slotAnimation {
+  width: 450px;
+  max-width: 85vw;
+
+  display: none;
+
+  border-radius: 20px;
+
+  position: relative;
+  z-index: 5;
+
+  margin: 0 auto;
+}
+
+#letterScene {
+  position: fixed;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1.5s ease;
+
+  background-image: url("https://i.ibb.co/FksRnhKw/envelope-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#letterScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#coinLayer {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+.coin {
+  position: absolute;
+
+  width: 70px;
+
+  top: -100px;
+
+  pointer-events: none;
+
+  image-rendering: pixelated;
+
+  z-index: 5000;
+
+  animation: coinFall linear forwards;
+}
+
+@keyframes coinFall {
+  from {
+    transform: translateY(-100px) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(120vh) rotate(720deg);
+  }
+}
+#winMessage {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+#youWonText {
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 5rem;
+  font-weight: 700;
+
+  color: black;
+
+  opacity: 0;
+
+  transform: scale(0.1) rotate(0deg);
+
+  text-shadow: 6px 6px 0 white;
+}
+
+#youWonText.show {
+  animation: winSpin 1.6s ease forwards;
+}
+
+@keyframes winSpin {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+#giftText {
+  margin-top: 20px;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 2.2rem;
+
+  font-weight: 700;
+
+  color: black;
+
+  opacity: 0;
+
+  text-shadow: 4px 4px 0 white;
+}
+
+#giftText.show {
+  animation: fadeGift 1s forwards;
+}
+
+@keyframes fadeGift {
+  to {
+    opacity: 1;
+  }
+}
+
+#envelopeWrap {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5;
+}
+#envelopeWrap {
+  opacity: 0;
+}
+
+#pixelEnvelope {
+  width: 180px;
+  height: auto;
+
+  cursor: pointer;
+
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.25));
+
+  animation: envelopeBounce 1.3s ease-in-out infinite;
+}
+#pixelEnvelope:hover {
+  transform: scale(1.08);
+}
+
+@keyframes envelopeBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+#birthdayScene {
+  position: fixed;
+  inset: 0;
+
+  background: white;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1s ease;
+
+  z-index: 3000;
+
+  overflow: hidden;
+}
+
+#birthdayScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#birthdayMain {
+  position: absolute;
+
+  left: 50%;
+  top: 30%;
+
+  width: 330px;
+  max-width: 40vw;
+
+  transform: translate(-50%, -50%);
+}
+#birthdayCat {
+  position: absolute;
+
+  bottom: 15px;
+  left: 100px;
+
+  width: 220px;
+}
+#birthdayJester {
+  position: absolute;
+
+  bottom: 15px;
+  right: 75px;
+
+  width: 250px;
+}
+#birthdayDog {
+  position: absolute;
+
+  top: 10px;
+  left: 50px;
+
+  width: 250px;
+
+  z-index: 20;
+}
+#birthdayCake {
+  position: absolute;
+
+  top: 20px;
+  right: 200px;
+
+  width: 300px;
+
+  z-index: 20;
+}
+#birthdayModi {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  width: 160px;
+
+  transform: translateX(-50%);
+
+  z-index: 15;
+}
+.openEnvelope {
+  animation: envelopeZoom 1s ease forwards;
+}
+@keyframes envelopeZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: translateY(-40px) scale(1.15);
+  }
+
+  100% {
+    transform: scale(7);
+
+    opacity: 0;
+  }
+}
+#approvalScene {
+  position: fixed;
+  inset: 0;
+
+  background-image: url("https://i.ibb.co/PGZ0Sb3f/spotlighy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1s ease;
+
+  z-index: 5000;
+
+  overflow: hidden;
+}
+#councilText {
+  position: absolute;
+
+  left: 50%;
+  bottom: -200px;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 3.5rem;
+
+  color: #d62828;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+
+  opacity: 0;
+}
+@keyframes councilRise {
+  0% {
+    bottom: -200px;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 40%;
+    opacity: 1;
+  }
+}
+#shrekSpotlight {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+#approvedText {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+
+  opacity: 0;
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 5rem;
+
+  color: #32c759;
+
+  text-shadow: 5px 0 black, -5px 0 black, 0 5px black, 0 -5px black,
+    5px 5px black, -5px -5px black, 5px -5px black, -5px 5px black;
+}
+@keyframes approvedAppear {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+
+    opacity: 1;
+  }
+}
+
+#councilShrek {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+
+  width: 220px;
+  max-width: 25vw;
+
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  z-index: 10;
+}
+#councilText {
+  position: absolute;
+
+  left: 50%;
+  top: 60%;
+  width: 80%;
+  max-width: 800px;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 1.6rem;
+
+  color: #d62828;
+
+  opacity: 0;
+
+  z-index: 20;
+  line-height: 1.3;
+
+  word-wrap: break-word;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+}
+#approvedText {
+  position: absolute;
+  width: 90%;
+  max-width: 900px;
+
+  left: 50%;
+  top: 72%;
+
+  transform: translateX(-50%) scale(0);
+
+  opacity: 0;
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 2rem;
+
+  color: #32c759;
+  line-height: 1.2;
+
+  z-index: 20;
+
+  text-shadow: 5px 0 black, -5px 0 black, 0 5px black, 0 -5px black,
+    5px 5px black, -5px -5px black, 5px -5px black, -5px 5px black;
+}
+@keyframes darknessFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shrekAscend {
+  0% {
+    opacity: 0;
+
+    transform: translate(-50%, -150%) scale(0.4);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes councilAppear {
+  from {
+    opacity: 0;
+
+    transform: translateX(-50%) translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes approvedBoom {
+  0% {
+    opacity: 0;
+
+    transform: translateX(-50%) scale(0);
+  }
+
+  70% {
+    opacity: 1;
+
+    transform: translateX(-50%) scale(1.25);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateX(-50%) scale(1);
+  }
+}
+#councilDarkness {
+  position: absolute;
+  inset: 0;
+
+  background: black;
+  opacity: 0;
+
+  z-index: 0;
+}
+#approvalScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+#approvalScene.screenShake {
+  animation: screenShake 0.08s linear infinite;
+}
+@keyframes screenShake {
+  0% {
+    transform: translate(8px, 4px);
+  }
+  10% {
+    transform: translate(-8px, -4px);
+  }
+  20% {
+    transform: translate(10px, -6px);
+  }
+  30% {
+    transform: translate(-10px, 6px);
+  }
+  40% {
+    transform: translate(8px, -8px);
+  }
+  50% {
+    transform: translate(-8px, 8px);
+  }
+  60% {
+    transform: translate(10px, 5px);
+  }
+  70% {
+    transform: translate(-10px, -5px);
+  }
+  80% {
+    transform: translate(8px, 8px);
+  }
+  90% {
+    transform: translate(-8px, -8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.screenShake {
+  animation: screenShake 0.08s infinite;
+}
+#thunderLayer {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.thunderFlash {
+  animation: thunderFlash 0.15s;
+}
+
+@keyframes thunderFlash {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+#modiFinal {
+  position: absolute;
+
+  left: 50%;
+  top: -500px;
+  width: 280px;
+
+  transform: translateX(-50%);
+
+  z-index: 50;
+}
+@keyframes modiDescend {
+  0% {
+    top: -500px;
+  }
+
+  75% {
+    top: 32%;
+  }
+
+  100% {
+    top: 18%;
+  }
+}
+
+#modiDialogue {
+  position: absolute;
+
+  left: 50%;
+  top: 72%;
+
+  transform: translateX(-50%);
+
+  width: 80%;
+
+  text-align: center;
+
+  opacity: 0;
+
+  z-index: 100;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 2rem;
+
+  color: #d62828;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+}
+#howeverText {
+  position: absolute;
+
+  left: 50%;
+  top: 72%;
+
+  transform: translateX(-50%);
+
+  opacity: 0;
+
+  font-family: "Cedarville Cursive", cursive;
+
+  font-size: 2.2rem;
+
+  color: white;
+
+  z-index: 100;
+}
+#modiHealthWrap {
+  position: absolute;
+
+  top: 3%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 340px;
+  max-width: 80vw;
+
+  opacity: 0;
+
+  z-index: 100;
+}
+#modiName {
+  font-family: "Pixelify Sans", sans-serif;
+
+  color: white;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 10px;
+}
+#modiHealthBar {
+  position: relative;
+
+  width: 260px;
+  height: 24px;
+
+  background: #bdbdbd;
+
+  border: 4px solid black;
+  border-radius: 0;
+
+  box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.35),
+    inset -3px -3px 0 rgba(80, 80, 80, 0.25);
+
+  overflow: hidden;
+}
+#healthContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+#hpHeart {
+  width: 42px;
+  height: auto;
+
+  image-rendering: pixelated;
+
+  transform: translateY(-1px);
+  flex-shrink: 0;
+}
+
+#barOuter {
+  width: 260px;
+  height: 18px;
+
+  background: #cfcfcf;
+
+  border: 3px solid black;
+
+  overflow: hidden;
+}
+
+#modiHealthFill {
+  width: 100%;
+  height: 100%;
+
+  background: red;
+
+  box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.6),
+    inset -3px -3px 0 rgba(180, 180, 180, 0.35);
+
+  transition: width 0.35s ease;
+}
+#attackBtn {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 150px;
+
+  opacity: 0;
+
+  cursor: pointer;
+
+  z-index: 100;
+
+  image-rendering: pixelated;
+}
+
+#attackBtn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+.modiJumping {
+  animation: modiJump 0.5s ease-in-out infinite;
+}
+
+@keyframes modiJump {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+#arrowLayer {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 200;
+}
+.attackArrow {
+  position: absolute;
+
+  width: 130px;
+
+  transform: rotate(90deg);
+
+  transform-origin: center center;
+
+  pointer-events: none;
+}
+@keyframes simpleFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes simpleFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+#battleMessage {
+  position: absolute;
+  margin-top: 120px;
+
+  top: 79% !important;
+  width: 400px;
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #00ff66;
+
+  opacity: 0;
+
+  z-index: 500;
+
+  text-shadow: 3px 0 black, -3px 0 black, 0 3px black, 0 -3px black,
+    3px 3px black, -3px -3px black;
+}
+
+.battleLeft {
+  left: calc(50% - 500px);
+  transform-origin: center center;
+}
+
+.battleRight {
+  left: calc(50% + 70px);
+  transform-origin: center center;
+}
+
+.battlePop {
+  animation: battlePop 1.4s forwards;
+}
+
+@keyframes battlePop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.2);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.9);
+  }
+}
+.damageText {
+  color: #ff3b3b;
+  font-weight: 900;
+  margin-left: 10px;
+}
+#defeatText {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  color: #ff0000;
+  font-size: 4rem;
+  font-weight: 900;
+
+  text-align: center;
+
+  opacity: 0;
+
+  z-index: 100000;
+
+  text-shadow: 4px 0 black, -4px 0 black, 0 4px black, 0 -4px black,
+    4px 4px black, -4px -4px black;
+
+  image-rendering: pixelated;
+}
+#modiExitWrap {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+
+  width: 350px;
+  height: 350px;
+
+  transform: translateX(-50%);
+
+  overflow: hidden;
+
+  z-index: 100;
+}
+
+#modiExit {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 350px;
+  height: auto;
+
+  image-rendering: pixelated;
+
+  cursor: grab;
+
+  touch-action: none;
+}
+@keyframes modiExitEnter {
+  0% {
+    left: -400px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(50% - 175px);
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes sceneFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+#swipeInstruction {
+  position: absolute;
+
+  left: 50%;
+  top: 65%;
+
+  transform: translateX(-50%);
+
+  opacity: 0;
+
+  z-index: 1000;
+
+  font-family: "Cedarville Cursive", cursive;
+
+  font-size: 2.4rem;
+
+  font-weight: bold;
+
+  color: white;
+
+  text-align: center;
+}
+#swipeModi {
+  position: absolute;
+
+  left: calc(50% - 175px);
+
+  top: 18%;
+
+  width: 350px;
+
+  cursor: grab;
+
+  z-index: 100;
+}
+.modiWhoosh {
+  position: absolute;
+
+  width: 180px;
+  height: 6px;
+
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0)
+  );
+
+  pointer-events: none;
+
+  z-index: 400;
+
+  animation: whooshFade 0.8s linear forwards;
+}
+
+@keyframes whooshFade {
+  from {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+}
+#blackTransition {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transition: opacity 2s ease;
+}
+
+#blackTransition.show {
+  opacity: 1;
+}
+#whiteTransition {
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 2s ease;
+}
+
+#whiteTransition.show {
+  opacity: 1;
+}
+#defeatImage {
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 550px;
+  max-width: 90vw;
+
+  opacity: 0;
+  display: none;
+
+  z-index: 100000;
+}
+@keyframes defeatSpinIn {
+  0% {
+    opacity: 0;
+
+    transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  }
+}
+#postVictoryText {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 3rem;
+
+  color: black;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 100001;
+
+  transition: opacity 1.5s ease;
+}
+
+#postVictoryText.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#roadmapScene {
+  position: fixed;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 2s ease;
+
+  z-index: 100002;
+}
+
+#roadmapScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#roadmapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.checkpoint {
+  position: absolute;
+  cursor: pointer;
+  background: transparent !important;
+  opacity: 0;
+}
+
+/* POSITION THIS OVER THE FIRST CHECKPOINT */
+#checkpoint1 {
+  left: 50%;
+  top: 37%;
+  width: 250px;
+  height: 105px;
+
+  background: transparent;
+  opacity: 0;
+  cursor: pointer;
+}
+#checkpoint2 {
+  left: 24%;
+  top: 56%;
+  width: 250px;
+  height: 105px;
+  transform: translate(-50%, -50%);
+  display: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#checkpointVideo1 {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 100003;
+
+  opacity: 0;
+
+  transition: opacity 1.5s ease;
+}
+#checkpointVideoScene {
+  position: fixed;
+  inset: 0;
+
+  background: black;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1s ease;
+
+  z-index: 200000;
+}
+
+#checkpointVideoScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#checkpointVideo {
+  width: 100%;
+  height: 100%;
+}
+#cp1Guide {
+  position: absolute;
+
+  left: 61%;
+  top: 45%;
+
+  width: 250px;
+  height: auto;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  opacity: 1; /* set to 0 after alignment */
+}
+#cp2Guide {
+  position: absolute;
+
+  left: 24%;
+  top: 56%;
+
+  width: 250px;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#checkpoint3 {
+  position: absolute;
+
+  left: 84%;
+  top: 22%;
+
+  width: 250px;
+  height: 105px;
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  display: none;
+
+  cursor: pointer;
+}
+
+#cp3Guide {
+  position: absolute;
+
+  left: 85%;
+  top: 22%;
+
+  width: 250px;
+  height: auto;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  opacity: 0;
+  display: none;
+
+  transition: opacity 1s ease;
+}
+#checkpoint4 {
+  position: absolute;
+
+  left: 46%;
+  top: 71%;
+
+  width: 250px;
+  height: 105px;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  opacity: 0;
+
+  background: red; /* temporary */
+}
+
+#checkpoint5 {
+  position: absolute;
+
+  left: 86%;
+  top: 48%;
+
+  width: 250px;
+  height: 105px;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  opacity: 0;
+
+  background: blue; /* temporary */
+}
+#cp4Guide {
+  position: absolute;
+
+  left: 46%;
+  top: 71%;
+
+  width: 250px;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 1s ease;
+}
+
+#cp5Guide {
+  position: absolute;
+
+  left: 86%;
+  top: 50%;
+
+  width: 200px;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 1s ease;
+}
+#cp5LetterScene {
+  position: fixed;
+  inset: 0;
+
+  background: black;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1.5s ease;
+
+  z-index: 300000;
+}
+
+#cp5LetterScene.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#cp5Letter {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
